@@ -1,0 +1,34 @@
+@use '_index.scss' as *;
+
+.recipe {
+
+    &__img {
+        & > img {
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__title {
+
+    }
+
+    &__introduction {
+
+    }
+
+
+    &__subtitle {
+
+    }
+
+    &__ingredients {
+    
+    }
+
+    &__making {
+        
+    }
+}
