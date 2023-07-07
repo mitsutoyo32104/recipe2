@@ -1,24 +1,48 @@
-@use 'index' as *;
+@use "index" as *;
+
 
 .recipe {
+    &__inner {
+        @include mq() {
+            display: flex;
+        }
+    }
 
-    &__img {
-        margin-bottom: $sectionMBottom;
+    .video-wrapper {
+        // 親要素をブラウザ幅に設定。はみ出した部分はoverflowで非表示にする。
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
 
-        & > img {
-            height: 100vh;
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
+        // 動画は左上が表示されるので、object-positionのように動画の表示位置を中央へ
+        & > video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            max-width: none;
+        }
+
+        & > h1 {        
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            color: white;
+            font-size: 2rem;
         }
     }
 
     &__title {
+        margin-top: $sectionMBottom;
         margin-bottom: $sectionMBottom;
 
-        & > h2 {
+        &  h2 {
             margin-bottom: $sectionMBottom;
-            font-size: 1.7rem;
+            font-size: 1.8rem;
         }
     }
 
@@ -43,6 +67,7 @@
     }
 
     &__making {
+        margin-bottom: $sectionMBottom * 2;
 
         & .making__main {
             list-style-position: inside;
@@ -52,6 +77,76 @@
                 border-bottom: 1px dotted rgb(208, 208, 208);
             }
         }
+    }
+}
 
+.to-all-recipe {
+    text-align: center;
+    margin-bottom: $sectionMBottom * 4;
+    text-align: center;
+    perspective: 300px;
+
+    & > a {
+        margin: 0 auto;
+        display: inline-block;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.6s;
+
+        margin: 0 auto;
+        color: black;
+        text-decoration: none;
+        border: 1px solid black;
+        padding: 15px 40px;
+        background-color: white;
+
+        & > span {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            transform: rotateX(90deg);
+            transform-origin: center center -26px;
+            color: white;
+        }
+
+        &:hover {
+            transform: rotateX(-90deg);
+        }
+    }
+}
+
+.footer {
+    & .sns {
+        margin-bottom: $sectionMBottom - 25px;
+
+        &__main {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__item {
+            list-style: none;
+            margin-right: 10px;
+            text-align: center;
+
+            & > a {
+                color: $cBlack;
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    & .copyright {
+        text-align: center;
+        margin-bottom: $sectionMBottom;
+
+        & > p {
+            font-size: 0.7rem;
+        }
     }
 }

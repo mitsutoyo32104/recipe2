@@ -4,6 +4,7 @@
 
 .container {
   padding: 0 30px;
+  max-width: 100vw;
 }
 
 .subtitle {
@@ -13,21 +14,41 @@
   margin-bottom: 15px;
 }
 
-.recipe__img {
-  margin-bottom: 30px;
+@media (min-width: 835px) {
+  .recipe__inner {
+    display: flex;
+  }
 }
-.recipe__img > img {
+.recipe .video-wrapper {
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
+  position: relative;
+}
+.recipe .video-wrapper > video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  max-width: none;
+}
+.recipe .video-wrapper > h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-size: 2rem;
 }
 .recipe__title {
+  margin-top: 30px;
   margin-bottom: 30px;
 }
-.recipe__title > h2 {
+.recipe__title h2 {
   margin-bottom: 30px;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
 .recipe__ingredients {
   margin-bottom: 30px;
@@ -44,10 +65,73 @@
 .recipe__ingredients .ingredients__main > dd {
   text-align: right;
 }
+.recipe__making {
+  margin-bottom: 60px;
+}
 .recipe__making .making__main {
   list-style-position: inside;
 }
 .recipe__making .making__main > li {
   padding-bottom: 10px;
   border-bottom: 1px dotted rgb(208, 208, 208);
+}
+
+.to-all-recipe {
+  text-align: center;
+  margin-bottom: 120px;
+  text-align: center;
+  perspective: 300px;
+}
+.to-all-recipe > a {
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.6s;
+  margin: 0 auto;
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 15px 40px;
+  background-color: white;
+}
+.to-all-recipe > a > span {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  transform: rotateX(90deg);
+  transform-origin: center center -26px;
+  color: white;
+}
+.to-all-recipe > a:hover {
+  transform: rotateX(-90deg);
+}
+
+.footer .sns {
+  margin-bottom: 5px;
+}
+.footer .sns__main {
+  display: flex;
+  justify-content: center;
+}
+.footer .sns__item {
+  list-style: none;
+  margin-right: 10px;
+  text-align: center;
+}
+.footer .sns__item > a {
+  color: black;
+  font-size: 0.7rem;
+}
+.footer .copyright {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.footer .copyright > p {
+  font-size: 0.7rem;
 }/*# sourceMappingURL=style.css.map */
