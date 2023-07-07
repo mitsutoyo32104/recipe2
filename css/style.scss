@@ -1,8 +1,10 @@
-@use '_index.scss' as *;
+@use 'index' as *;
 
 .recipe {
 
     &__img {
+        margin-bottom: $sectionMBottom;
+
         & > img {
             height: 100vh;
             width: 100%;
@@ -12,23 +14,44 @@
     }
 
     &__title {
+        margin-bottom: $sectionMBottom;
 
-    }
-
-    &__introduction {
-
-    }
-
-
-    &__subtitle {
-
+        & > h2 {
+            margin-bottom: $sectionMBottom;
+            font-size: 1.7rem;
+        }
     }
 
     &__ingredients {
-    
+        margin-bottom: $sectionMBottom;
+
+        & .ingredients__main {
+            display: flex;
+            flex-wrap: wrap;
+
+            & > dt {
+                width: 50%;
+                border-bottom: 1px dotted rgb(208, 208, 208);
+                padding: 5px;
+            }
+
+            & > dd {
+                text-align: right;
+                @extend dt;
+            }
+        }
     }
 
     &__making {
-        
+
+        & .making__main {
+            list-style-position: inside;
+
+            & > li {
+                padding-bottom: 10px;
+                border-bottom: 1px dotted rgb(208, 208, 208);
+            }
+        }
+
     }
 }

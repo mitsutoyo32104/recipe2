@@ -1,3 +1,16 @@
+@use 'variables' as *;
+
+* {
+    font-size: $defaultFSize;
+}
+
 .container {
-    padding: 0 20px;
+    padding: 0 30px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgb(208, 208, 208);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
